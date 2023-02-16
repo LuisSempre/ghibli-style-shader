@@ -1,31 +1,40 @@
-import { forwardRef, useMemo } from 'react';
+import { forwardRef, useMemo } from "react";
 import { useGLTF } from "@react-three/drei";
-import { RedFormat, DataTexture } from "three";
+import { Vector3 } from "three";
+import { GhibliShader } from "./GhibliShader";
 
 export const Trees = forwardRef((props, ref) => {
-  const { nodes, materials } = useGLTF("/trees.glb");
-  const toneMap = useMemo(() => {
-    const format = RedFormat;
-    const colors = new Uint8Array(4)
-    for (let c = 0; c <= colors.length; c++) {
-      colors[c] = (c / colors.length) * 256
-    }
-    const gradientMap = new DataTexture(colors, colors.length, 1, format)
-    gradientMap.needsUpdate = true
-    return gradientMap;
-  }, [])
+  const { nodes } = useGLTF("/trees.glb");
+
+  const uniforms = useMemo(
+    () => ({
+      colorMap: {
+        value: props.colors,
+      },
+      brightnessThresholds: {
+        value: [0.6, 0.35, 0.001],
+      },
+      lightPosition: { value: new Vector3(15, 15, 15) },
+    }),
+    [props.colors]
+  );
+
   return (
-    <group ref={ref} {...props} dispose={null}>
+    <group {...props} ref={ref} dispose={null}>
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Foliage.geometry}
-        material={materials["Stylized Foliage"]}
         position={[0.33, -0.05, -0.68]}
-      ></mesh>
-      <meshToonMaterial gradientMap={toneMap} color={"#234549"} />
+      >
+        <shaderMaterial
+          attach="material"
+          {...GhibliShader}
+          uniforms={uniforms}
+        />
+      </mesh>
     </group>
   );
-})
+});
 
 useGLTF.preload("/trees.glb");

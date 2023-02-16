@@ -1,6 +1,11 @@
 html,
-body #root {
+body {
   background: transparent;
+}
+
+html,
+body,
+#root {
   width: 100%;
   height: 100%;
 }

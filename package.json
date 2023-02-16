@@ -2,9 +2,24 @@
   "name": "ghibli-style-shader",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Luis Lucas",
+    "email": "luis@semper-ti.com",
+    "url": "https://www.semper-ti.com.br/"
+  },
+  "keywords": [
+    "Three",
+    "React Fiber",
+    "Ghibli",
+    "React"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craftzdog/ghibli-style-shader.git"
+  },
   "dependencies": {
-    "@react-three/drei": "^9.56.24",
-    "@react-three/fiber": "^8.11.1",
+    "@react-three/drei": "^9.56.18",
+    "@react-three/fiber": "^8.11.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
