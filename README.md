@@ -2,14 +2,6 @@
 
 [DEMO](https://ghibli-style-shader.vercel.app/)
 
-[Video tutorial](https://www.youtube.com/watch?v=IGK6eceWyU4)
-
-![image](./doc/image.jpg)
-
-![image](./doc/image_2.jpg)
-
-![image](./doc/image_3.jpg)
-
 ## Ingredients
 
 - React - A JavaScript library for building UIs

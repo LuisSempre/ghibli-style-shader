@@ -34,15 +34,6 @@ export function Scene() {
           new Color("#1e363f").convertLinearToSRGB(),
         ]}
       />
-      <Trees
-        position={[0, 0, 4]}
-        colors={[
-          new Color("#4a8d7e").convertLinearToSRGB(),
-          new Color("#377f6a").convertLinearToSRGB(),
-          new Color("#184f52").convertLinearToSRGB(),
-          new Color("#143b36").convertLinearToSRGB(),
-        ]}
-      />
     </>
   );
 }
